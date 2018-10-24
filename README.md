@@ -22,7 +22,7 @@ The generated code is already included in this repository but instructions for g
 
 ## Running the IPython Notebook
 
-1. In order to run the example Jupyter (ipython) notebook you need to first install a few Python packages. These instructions were developed using the [Anaconda Python 3 distribution](https://www.anaconda.com/download/) and it is highly recommended (if not required) to ensure proper operation. Additionally, I recommend performing (and did) this installation in a [Python virtual environment](https://conda.io/docs/user-guide/tasks/manage-environments.html) in order to maintain a clean native installation on your system. To install the necessary packages run the following commands from you Anaconda Python environment:
+1. In order to run the example Jupyter (ipython) notebook you need to first install a few Python packages. These instructions were developed using the [Anaconda Python 3 distribution](https://www.anaconda.com/download/) and it is highly recommended (if not required) to ensure proper operation. Additionally, I recommend performing (and did) this installation in a [Python virtual environment](https://conda.io/docs/user-guide/tasks/manage-environments.html) in order to maintain a clean native installation on your system. To install the necessary packages run the following commands while your Anaconda Python environment is active:
 
     * `conda install matplotlib`
     * `conda install jupyter`
