@@ -14,6 +14,9 @@ class Pixie4e(KaitaiStruct):
         self._root = _root if _root else self
         self._read()
 
+    def __getitem__(self, key):
+        return getattr(self, key)
+
     def _read(self):
         self.file_header = self._root.Pixie4eHeader(self._io, self, self._root)
         self.events = []
@@ -29,6 +32,9 @@ class Pixie4e(KaitaiStruct):
             self._parent = _parent
             self._root = _root if _root else self
             self._read()
+
+        def __getitem__(self, key):
+            return getattr(self, key)
 
         def _read(self):
             self.blk_size = self._io.read_u2le()
@@ -57,6 +63,9 @@ class Pixie4e(KaitaiStruct):
             self._root = _root if _root else self
             self._read()
 
+        def __getitem__(self, key):
+            return getattr(self, key)
+
         def _read(self):
             self.header = self._root.ChannelHeader(self._io, self, self._root)
             self.data = [None] * ((self.header.num_trace_blks * self._root.file_header.blk_size))
@@ -71,6 +80,9 @@ class Pixie4e(KaitaiStruct):
             self._parent = _parent
             self._root = _root if _root else self
             self._read()
+
+        def __getitem__(self, key):
+            return getattr(self, key)
 
         def _read(self):
             self.evt_pattern = self._io.read_u2le()
