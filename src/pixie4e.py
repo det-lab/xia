@@ -8,8 +8,9 @@ if parse_version(ks_version) < parse_version('0.7'):
     raise Exception("Incompatible Kaitai Struct Python API: 0.7 or later is required, but you have %s" % (ks_version))
 
 class Pixie4e(KaitaiStruct):
-    def __init__(self, _io, _parent=None, _root=None):
+    def __init__(self, _io, _parent=None, _root=None): #, _list Passed as argument from from_file(cls, filename, list) in the kaitaistruct.py file
         self._io = _io
+        # self._list = _list
         self._parent = _parent
         self._root = _root if _root else self
         self._read()
@@ -22,6 +23,15 @@ class Pixie4e(KaitaiStruct):
         self.events = []
         i = 0
         while not self._io.is_eof():
+
+            # NOTE - potential way to read individual events???
+            # if list is empty, read all events?
+            # event_n = Even(self._io, self, self._root)
+            # NOTE - 
+            # if event_n.timestamp in []:
+            #   append
+
+
             self.events.append(self._root.Event(self._io, self, self._root))
             i += 1
 

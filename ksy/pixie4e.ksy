@@ -73,7 +73,7 @@ types:
       - id: header
         type: channel_header
 
-      - id: data    
+      - id: trace    
         type: u2
         repeat: expr
         repeat-expr: header.num_trace_blks * _root.file_header.blk_size
