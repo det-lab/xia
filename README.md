@@ -6,19 +6,8 @@ One of the advantages of using Kaitai Struct to define your data format is the a
 
 The example here is built using binary data courtesy of [XIA](https://www.xia.com/) from the [Pixie-4 Express](https://www.xia.com/dgf_pixie-4e.html) Digital Pulse Processor. The data format was defined using Kaitai Struct in the `ksy/pixie4e.ksy` file and used to generate a Python library to interface with the raw binary file. Finally, the generated Python code was imported into a ipython notebook to demonstrate how analysis could potentially be performed on the raw data. 
 
-The generated code is already included in this repository but instructions for generating the Python library are also shown below. To run the Jupyter Notebook locally, see the instructions under the [Running the IPython Notebook](#running-the-ipython-notebook) section.
+The generated code is already included in this repository but instructions for generating the Python library are also shown below. To run the Jupyter Notebook locally, see the instructions in the [Running the IPython Notebook](#running-the-ipython-notebook) section.
 
-## Generating the Python Library
-
-1. The first step is to make sure you have the `kaitai-struct-compiler` installed on your system. The latest version can be found at http://kaitai.io/. To install and use Kaitai Struct you will need to have the Java Development Kit and Java Runtime Environment installed on your machine.
-
-2. Once Kaitai Struct is installed, generating the Python library is easily done using the `pixie4e.ksy` file provided in this repository. From the `xia/` directory execute:
-
-```
-> kaitai-struct-compiler -t python ksy/pixie4e.ksy -d src/
-```
-
-3. The result should be a new file in the `src/` directory named `pixie4e.py`.
 
 ## Running the IPython Notebook
 
@@ -32,8 +21,24 @@ The generated code is already included in this repository but instructions for g
 
 3. From a terminal or cmd window execute `jupyter notebook`. This should open up a browser window running on localhost. The window should have the directory structure of your filesystem, from there navigate to the `xia/src/` directory that you downloaded from this repository. Click on `xia_analysis.ipynb`. You should now have a jupyter notebook running in your browser window.
 
-4. !!! IMPORTANT !!! Make sure you edit the file path in the first cell to point to the StilbeneAmCs_500_0253.b00 file on your local machine. For example on a Windows machine, the full line of code might look like `pixie_data = Pixie4e.from_file(r"C:\Users\jane_doe\Desktop\xia\data\StilbeneAmCs_500_0253.b00")`
+4. !!! IMPORTANT !!! Make sure you edit the file path in the first cell to point to the `StilbeneAmCs_500_0253.b00` or `LaBr_Na22coinc_attn8_500fast_0148.b00` file on your local machine. For example on a Windows machine, the full line of code might look like `pixie_data = Pixie4e.from_file(r"C:\Users\jane_doe\Desktop\xia\data\StilbeneAmCs_500_0253.b00")`
 
 5. To execute the notebook: You may either run all the cells at once by going to the menu bar and selecting `Cell>Run All` or you can execute each cell individually by selecting the desired cell and clicking the `Run` button. If you run each cell individually you must execute them in order to ensure proper operation.
 
 6. You may now make changes and play with the notebook to see what kinds of plots and analysis can be done using the sample data file.
+
+## Generating the Python Library
+
+As noted above: **The python library has already been compiled and included with this repository, so the following steps are not necessary to run the example notebook as-is**, **_but_**, if you decide to make changes to the `.ksy` file or write a new file based on another data format you will need to re-compile the python code in order to match the new structure.
+
+1. The first step is to make sure you have the `kaitai-struct-compiler` installed on your system. The latest version can be found at http://kaitai.io/. To install and use Kaitai Struct you will need to have the Java Development Kit and Java Runtime Environment installed on your machine.
+
+2. Once Kaitai Struct is installed, generating the Python library is easily done using the `pixie4e.ksy` file provided (or a file of your own creation) in this repository. From the `xia/` directory execute:
+
+```
+> kaitai-struct-compiler -t python ksy/pixie4e.ksy -d src/
+```
+
+3. This command is using the `kaitai-struct-compiler` program, the `-t` flag tells it to target `python` as the output language, `ksy/pixie4e.ksy` is the path to file from which to generate the code, and the `-d src/` is simply telling what directory the output file should go. 
+
+4. The result should be a new file in the `src/` directory named `pixie4e.py`.
