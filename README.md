@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/154384390.svg)](https://zenodo.org/badge/latestdoi/154384390)
+
 # Using Kaitai Struct to Produce Analysis
 
 One of the advantages of using Kaitai Struct to define your data format is the ability to compile the `.ksy` file into the programming language of your choice. This makes it much easier to use the data in question with tools that may already exist in one language or another.
