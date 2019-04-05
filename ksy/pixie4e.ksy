@@ -8,15 +8,15 @@ seq:
 
   - id: file_header
     type: pixie4e_header
+    size: 64
 
   - id: events
     type: event
-    repeat: eos
-    # repeat: until
-    # repeat-until: _.header.evt_info == 0x0100
+    size: _io.size - 128
 
-  # - id: file_footer
-  #   type: pixie_eor
+  - id: file_footer
+    type: pixie_eor
+    size: 64
 
 
 types:
@@ -62,13 +62,18 @@ types:
       - id: serial_number
         type: u2
 
-      - id: unused
+      - id: reserved
         type: u2
-        repeat: expr
-        repeat-expr: 0x13
 
 
   event:
+    seq:
+      - id: elements
+        type: element
+        repeat: eos
+
+
+  element:
     seq:
       - id: header
         type: channel_header
@@ -131,21 +136,19 @@ types:
       timestamp_full:
         value: trig_time_lo + (trig_time_mi << 16) + (trig_time_hi << 32)
 
-  # pixie_eor:
-  #   seq:
-  #     - id: evt_pattern
-  #       type: u2
+  pixie_eor:
+     seq:
+       - id: evt_pattern
+         type: u2
 
-  #     - id: evt_info
-  #       type: u2
+       - id: evt_info
+         type: u2
 
-  #     - id: num_trace_blks
-  #       type: u2
+       - id: num_trace_blks
+         type: u2
 
-  #     - id: num_trace_blks_prev
-  #       type: u2
+       - id: num_trace_blks_prev
+         type: u2
 
-  #     - id: reserved
-  #       type: u2
-  #       repeat: expr
-  #       repeat-expr: 0x1C
+       - id: reserved
+         type: u2
