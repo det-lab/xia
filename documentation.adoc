@@ -26,6 +26,7 @@
     b. conda update --all
     b. Create Environment
         https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#id2
+            i. Use envXIA.yml
 6. Test if path is correct
     a. Navigate to XIA Repo
     b. Execute: py.test --nbval-lax
