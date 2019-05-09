@@ -1,0 +1,38 @@
+1. Install Ubuntu 18.04 LTS (or latest build, or preferred terminal)
+    If Ubuntu 18.04 LTS and on Windows, enable Windows Subsystem for Linux
+        Control Panel >> Turn Windows Features On or Off >> Windows Subsystem for Linux
+    a. Create Unix username
+        Must be lowercase, can contain underscores
+    b. Create passphrase
+    c. Re-enter passphrase
+2. Generate an SSH Key
+    a. ssh-keygen -t rsa  -C "your_email@domain.com"
+    b. Enter to accept default location
+    c. Enter passphrase
+    d. Re-enter passphrase
+3. Copy SSH Key to GitHub >> Profile >> Settings >> SSH and GPG Keys
+    a. New SSH Key
+    b. Enter name for key
+    c. In Ubuntu terminal, execute command: clip < ~/.sshid_rsa.pub
+    d. Copy output
+    e. Paste in SSH key
+    f. Add SSH key
+4. Git clone XIA Repo
+    a. Navigate to desired file location for repository
+    b. git clone https://github.com/det-lab/xia.git
+5. Create Environment from YML File
+    a. Install latest Anaconda build
+        https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
+    b. conda update --all
+    b. Create Environment
+        https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#id2
+6. Test if path is correct
+    a. Navigate to XIA Repo
+    b. Execute: py.test --nbval-lax
+    
+       
+For Devs
+    Install Kaitai-Struct-Compiler
+        https://kaitai.io/#download
+    Install Java
+        https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
