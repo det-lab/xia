@@ -1,0 +1,18 @@
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+  - conda create env -f envXIA.yml
+
+staging:
+  stage: deploy
+  script:
+  - py.test --nbval-lax
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
