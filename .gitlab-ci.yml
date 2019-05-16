@@ -1,16 +1,10 @@
-stages:
-  - test
-  - deploy
+image: continuumio/miniconda3:latest
+
+before_script:
+  - conda env create -f envXIA.yml
+  - source activate envXIA
 
 test:
-  stage: test
-  script:
-  - apt-get update
-  - curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/miniconda3.sh
-  - bash ~/miniconda3.sh -bfp ~/miniconda3
-  - conda create env -f envXIA.yml
-
-staging:
   stage: deploy
   script:
   - py.test --nbval-lax
