@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/det-lab/xia.svg?branch=master)](https://travis-ci.com/det-lab/xia)
 [![DOI](https://zenodo.org/badge/154384390.svg)](https://zenodo.org/badge/latestdoi/154384390)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/det-lab/xia/awkward-array)
 
