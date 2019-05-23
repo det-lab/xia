@@ -13,7 +13,7 @@
 3. Copy SSH Key to GitHub >> Profile >> Settings >> SSH and GPG Keys
     a. New SSH Key
     b. Enter name for key
-    c. In Ubuntu terminal, execute command: clip < ~/.sshid_rsa.pub
+    c. In Ubuntu terminal, execute command: cat < ~/.ssh/id_rsa.pub
     d. Copy output
     e. Paste in SSH key
     f. Add SSH key
