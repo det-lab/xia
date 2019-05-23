@@ -30,7 +30,12 @@
 6. Test if path is correct
     a. Navigate to XIA Repo
     b. Execute: py.test --nbval-lax
-    
+7. Save Credentials for Ease of git push
+    a. Execute following commands
+        $ git config credential.helper store
+        $ git push http://example.com/repo.git
+        Username: <type your username>
+        Password: <type your password>
        
 For Devs
     Install Kaitai-Struct-Compiler
