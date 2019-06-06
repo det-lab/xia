@@ -46,3 +46,12 @@ As noted above: **The python library has already been compiled and included with
 3. This command is using the `kaitai-struct-compiler` program, the `-t` flag tells it to target `python` as the output language, `ksy/pixie4e.ksy` is the path to file from which to generate the code, and the `-d src/` is simply telling what directory the output file should go. 
 
 4. The result should be a new file in the `src/` directory named `pixie4e.py`.
+
+## Contributors:
+Brett Gedvilas
+
+Amy Roberts
+
+Gabriella Ramirez
+
+Kitty Harris
