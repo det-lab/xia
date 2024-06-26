@@ -78,10 +78,8 @@ types:
       - id: header
         type: channel_header
 
-      - id: data    
-        type: u2
-        repeat: expr
-        repeat-expr: header.num_trace_blks * _root.file_header.blk_size
+      - id: data
+        size: 2 * header.num_trace_blks * _root.file_header.blk_size
 
 
   channel_header:
@@ -123,14 +121,10 @@ types:
         type: u2
 
       - id: extended_psa_values
-        type: u2
-        repeat: expr
-        repeat-expr: 0x4
+        size: 2 * 0x4
 
       - id: reserved
-        type: u2
-        repeat: expr
-        repeat-expr: 0x10
+        size: 2 * 0x10
 
     instances:
       timestamp_full:
